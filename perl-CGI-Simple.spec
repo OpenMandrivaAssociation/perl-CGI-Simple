@@ -1,16 +1,18 @@
-%define pkgname CGI-Simple
+%define module  CGI-Simple
+%define name	perl-%{module}
+%define version 1.0
+%define release %mkrel 1
 
-name:      perl-%{pkgname}
-summary:   CGI-Simple - A Simple totally OO CGI interface that is CGI.pm compliant
-version:   0.080
-release:   %mkrel 1
-
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
+Summary:    A Simple totally OO CGI interface that is CGI.pm compliant
 license:   Artistic
 group:     Development/Perl
-url:       http://www.cpan.org
-buildroot: %{_tmppath}/%{name}-%{version}-%(id -u -n)
+Url:            http://search.cpan.org/dist/%{module}
+Source:         http://www.cpan.org/modules/by-module/CGI/%{module}-%{version}.tar.gz
 buildarch: noarch
-source:    http://search.cpan.org/dist/J/JF/JFREEMAN/%{pkgname}-%{version}.tar.bz2
+buildroot: %{_tmppath}/%{name}-%{version}
 
 %description
 CGI::Simple provides a relatively lightweight drop in replacement for CGI.pm.
@@ -28,23 +30,21 @@ In practical testing this module loads and runs about twice as fast as CGI.pm
 depending on the precise task.
 
 %prep
-%setup -q -n %{pkgname}-%{version} 
+%setup -q -n %{module}-%{version} 
 
 %build
-CFLAGS="$RPM_OPT_FLAGS"
 %{__perl} Makefile.PL INSTALLDIRS=vendor
-%{__make} 
+%make
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
+rm -rf %{buildroot}
 %{makeinstall_std}
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc README SIGNATURE
-%{perl_vendorlib}/*
+%doc README
+%{perl_vendorlib}/CGI
 %{_mandir}/*/*
