@@ -12,6 +12,7 @@ group:     Development/Perl
 Url:            http://search.cpan.org/dist/%{module}
 Source:         http://www.cpan.org/modules/by-module/CGI/%{module}-%{version}.tar.gz
 buildarch: noarch
+buildroot: %{_tmppath}/%{name}-%{version}
 
 %description
 CGI::Simple provides a relatively lightweight drop in replacement for CGI.pm.
