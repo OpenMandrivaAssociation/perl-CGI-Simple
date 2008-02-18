@@ -6,7 +6,7 @@
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-Summary:    A Simple totally OO CGI interface that is CGI.pm compliant
+Summary:    Simple totally OO CGI interface that is CGI.pm compliant
 license:   Artistic
 group:     Development/Perl
 Url:            http://search.cpan.org/dist/%{module}
