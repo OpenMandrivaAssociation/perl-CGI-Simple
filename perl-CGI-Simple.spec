@@ -1,18 +1,18 @@
-%define module  CGI-Simple
-%define name	perl-%{module}
-%define version 1.1
-%define release %mkrel 4
+%define upstream_name    CGI-Simple
+%define upstream_version 1.112
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-Summary:    Simple totally OO CGI interface that is CGI.pm compliant
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	%mkrel 1
+
+Summary:   Simple totally OO CGI interface that is CGI.pm compliant
 license:   Artistic
 group:     Development/Perl
-Url:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/CGI/%{module}-%{version}.tar.gz
+Url:       http://search.cpan.org/dist/%{upstream_name}
+Source0:   http://www.cpan.org/modules/by-module/CGI/%{upstream_name}-%{upstream_version}.tar.gz
+
 buildarch: noarch
-buildroot: %{_tmppath}/%{name}-%{version}
+buildroot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 CGI::Simple provides a relatively lightweight drop in replacement for CGI.pm.
@@ -30,7 +30,7 @@ In practical testing this module loads and runs about twice as fast as CGI.pm
 depending on the precise task.
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
