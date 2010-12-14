@@ -3,14 +3,16 @@
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	%mkrel 1
+Release:	%mkrel 2
 
 Summary:   Simple totally OO CGI interface that is CGI.pm compliant
 license:   Artistic
 group:     Development/Perl
 Url:       http://search.cpan.org/dist/%{upstream_name}
 Source0:   http://www.cpan.org/modules/by-module/CGI/%{upstream_name}-%{upstream_version}.tar.gz
-
+Patch0: CGI-Simple-1.112-CVE-2010-2761.diff
+Patch1: CGI-Simple-1.112-CVE-2010-4410.diff
+BuildRequires: perl-IO-stringy
 buildarch: noarch
 buildroot: %{_tmppath}/%{name}-%{version}-%{release}
 
@@ -31,10 +33,15 @@ depending on the precise task.
 
 %prep
 %setup -q -n %{upstream_name}-%{upstream_version}
+%patch0 -p1 -b .CVE-2010-2761
+%patch1 -p1 -b .CVE-2010-4410
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
 %make
+
+%check
+make test
 
 %install
 rm -rf %{buildroot}
