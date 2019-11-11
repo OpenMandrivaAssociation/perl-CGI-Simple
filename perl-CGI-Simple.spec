@@ -1,9 +1,9 @@
 %define upstream_name    CGI-Simple
-%define upstream_version 1.113
+%define upstream_version 1.22
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	5
+Release:	1
 
 Summary:   Simple totally OO CGI interface that is CGI.pm compliant
 license:   Artistic
@@ -35,13 +35,10 @@ depending on the precise task.
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
-%make
-
-%check
-make test
+%make_build
 
 %install
-%{makeinstall_std}
+%make_install
 
 %files
 %doc README
