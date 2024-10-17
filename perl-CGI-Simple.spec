@@ -8,7 +8,7 @@ Release:	1
 Summary:   Simple totally OO CGI interface that is CGI.pm compliant
 license:   Artistic
 group:     Development/Perl
-Url:       http://search.cpan.org/dist/%{upstream_name}
+Url:       https://search.cpan.org/dist/%{upstream_name}
 Source0:   http://www.cpan.org/modules/by-module/CGI/%{upstream_name}-%{upstream_version}.tar.gz
 BuildRequires: perl-IO-stringy
 BuildRequires: perl-devel
