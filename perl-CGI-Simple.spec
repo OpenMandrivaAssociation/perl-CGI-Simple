@@ -10,6 +10,7 @@ license:   Artistic
 group:     Development/Perl
 Url:       https://search.cpan.org/dist/%{upstream_name}
 Source0:   http://www.cpan.org/modules/by-module/CGI/%{upstream_name}-%{upstream_version}.tar.gz
+BuildRequires:	make
 BuildRequires: perl-IO-stringy
 BuildRequires: perl-devel
 BuildArch: noarch
