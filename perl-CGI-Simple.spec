@@ -1,15 +1,13 @@
 %define upstream_name    CGI-Simple
-%define upstream_version 1.282
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	1
+Version:	1.282
+Release:	2
 
 Summary:   Simple totally OO CGI interface that is CGI.pm compliant
 license:   Artistic
 group:     Development/Perl
 Url:       https://github.com/manwar/CGI--Simple
-Source0:   https://cpan.metacpan.org/authors/id/M/MA/MANWAR/CGI-Simple-%{upstream_version}.tar.gz
+Source0:   https://cpan.metacpan.org/authors/id/M/MA/MANWAR/CGI-Simple-%{version}.tar.gz
 BuildRequires:	make
 BuildRequires: perl-IO-stringy
 BuildRequires: perl-devel
@@ -32,7 +30,7 @@ In practical testing this module loads and runs about twice as fast as CGI.pm
 depending on the precise task.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -65,9 +63,7 @@ depending on the precise task.
 * Tue Jul 07 2009 Jérôme Quelin <jquelin@mandriva.org> 1.112.0-1mdv2011.0
 + Revision: 393092
 - update to 1.112
-- using %%perl_convert_version
-
-* Wed Jul 30 2008 Thierry Vignaud <tv@mandriva.org> 1.1-4mdv2009.0
+- using %1.282 Wed Jul 30 2008 Thierry Vignaud <tv@mandriva.org> 1.1-4mdv2009.0
 + Revision: 255830
 - rebuild
 
