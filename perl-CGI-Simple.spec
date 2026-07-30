@@ -2,7 +2,7 @@
 %define upstream_version 1.282
 Name:		perl-%{upstream_name}
 Version:	1.282
-Release:	1
+Release:	2
 
 Summary:   Simple totally OO CGI interface that is CGI.pm compliant
 license:   Artistic
@@ -34,7 +34,7 @@ depending on the precise task.
 %setup -q -n %{upstream_name}-%{version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make_build
 
 %install
