@@ -1,13 +1,14 @@
 %define upstream_name    CGI-Simple
+%define upstream_version 1.282
 Name:		perl-%{upstream_name}
 Version:	1.282
-Release:	2
+Release:	1
 
 Summary:   Simple totally OO CGI interface that is CGI.pm compliant
 license:   Artistic
 group:     Development/Perl
 Url:       https://github.com/manwar/CGI--Simple
-Source0:   https://cpan.metacpan.org/authors/id/M/MA/MANWAR/CGI-Simple-%{version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/M/MA/MANWAR/CGI-Simple-1.282.tar.gz
 BuildRequires:	make
 BuildRequires: perl-IO-stringy
 BuildRequires: perl-devel
