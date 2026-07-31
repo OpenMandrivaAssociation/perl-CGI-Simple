@@ -2,7 +2,7 @@
 %define upstream_version 1.282
 Name:		perl-%{upstream_name}
 Version:	1.282
-Release:	2
+Release:	1
 
 Summary:   Simple totally OO CGI interface that is CGI.pm compliant
 license:   Artistic
@@ -31,7 +31,7 @@ In practical testing this module loads and runs about twice as fast as CGI.pm
 depending on the precise task.
 
 %prep
-%setup -q -n %{upstream_name}-%{version}
+%setup -q -n CGI-Simple-1.282
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -40,60 +40,12 @@ perl Makefile.PL INSTALLDIRS=vendor
 %install
 %make_install
 
+%check
+make test || :
+
 %files
 %doc README
 %{perl_vendorlib}/CGI
 %{_mandir}/*/*
 
-
-%changelog
-* Sat May 28 2011 Funda Wang <fwang@mandriva.org> 1.113.0-2mdv2011.0
-+ Revision: 680698
-- mass rebuild
-
-* Thu Dec 30 2010 Guillaume Rousse <guillomovitch@mandriva.org> 1.113.0-1mdv2011.0
-+ Revision: 626242
-- new version
-
-* Tue Dec 14 2010 Oden Eriksson <oeriksson@mandriva.com> 1.112.0-2mdv2011.0
-+ Revision: 621731
-- P0: security fix for CVE-2010-2761
-- P1: security fix for CVE-2010-4410
-- enable the tests and fix deps
-
-* Tue Jul 07 2009 Jérôme Quelin <jquelin@mandriva.org> 1.112.0-1mdv2011.0
-+ Revision: 393092
-- update to 1.112
-- using %1.282 Wed Jul 30 2008 Thierry Vignaud <tv@mandriva.org> 1.1-4mdv2009.0
-+ Revision: 255830
-- rebuild
-
-* Mon Feb 18 2008 Thierry Vignaud <tv@mandriva.org> 1.1-2mdv2008.1
-+ Revision: 171023
-- rebuild
-- fix "foobar is blabla" summary (=> "blabla") so that it looks nice in rpmdrake
-- kill re-definition of %%buildroot on Pixel's request
-
-  + Olivier Blin <oblin@mandriva.com>
-    - restore BuildRoot
-
-* Mon Jul 16 2007 Guillaume Rousse <guillomovitch@mandriva.org> 1.1-1mdv2008.0
-+ Revision: 52483
-- update to new version 1.1
-
-* Wed Jul 04 2007 Guillaume Rousse <guillomovitch@mandriva.org> 1.0-1mdv2008.0
-+ Revision: 48175
-- new version
-
-* Tue May 01 2007 Olivier Thauvin <nanardon@mandriva.org> 0.080-1mdv2008.0
-+ Revision: 19752
-- 0.080
-- clean up the spec file
-
-
-* Wed Mar 08 2006 Oden Eriksson <oeriksson@mandriva.com> 0.077-2mdk
-- fix man pages names
-
-* Thu Mar 17 2005 Bruno Cornec <bcornec@mandrakesoft.org> 0.077-1mdk
-- Initial build.
 
